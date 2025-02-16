@@ -1,0 +1,81 @@
+# 🚀 General Python Ignore Rules
+__pycache__/
+*.py[cod]
+*.so
+*.egg-info/
+*.eggs/
+*.pyo
+*.pyd
+*.dll
+
+# 🏗 Virtual Environment
+venv/
+env/
+*.venv
+
+# 🔢 Machine Learning Models & Checkpoints
+models/
+*.h5
+*.hdf5
+*.pb
+*.pkl
+*.joblib
+
+# 📊 Data & Datasets
+data/
+*.csv
+*.json
+*.db
+*.sqlite3
+
+# 📜 Logs & Temporary Files
+logs/
+*.log
+*.out
+*.err
+nohup.out
+
+# 💻 Jupyter Notebook Checkpoints
+.ipynb_checkpoints/
+
+# 🚀 AWS & Deployment Credentials (Sensitive Files)
+.aws/
+.env
+secrets.json
+config.json
+credentials/
+
+# 📂 VSCode & IDE-Specific Files
+.vscode/
+.idea/
+*.swp
+*.swo
+*.swn
+
+# 🐍 Conda & Pip Dependencies
+*.pip
+*.conda
+*.lock
+
+# 🚀 Docker Ignore (If you add Docker support later)
+docker-compose.yml
+Dockerfile
+*.dockerignore
+
+# 💾 Compiled & Cache Files
+*.cache
+.cache/
+*.pyc
+*.pyo
+
+# ⚡ Ignore Dash & Flask Temp Files
+instance/
+*.db-journal
+
+# 💡 Debugging & Profile Output
+*.prof
+*.trace
+
+# 🎯 Ignore Windows & macOS System Files
+.DS_Store
+Thumbs.db
