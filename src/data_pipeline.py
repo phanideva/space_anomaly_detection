@@ -1,15 +1,18 @@
+import boto3
 import random
 import time
 import pandas as pd
 import os
+import config
 
-# Create a folder to save data if it doesn't exist
-DATA_FOLDER = "data"
-FILE_PATH = os.path.join(DATA_FOLDER, "satellite_telemetry.csv")
-os.makedirs(DATA_FOLDER, exist_ok=True)
+AWS_ACCESS_KEY = "aws_access_key"
+AWS_SECRET_KEY = "aws_secret_key"
+BUCKET_NAME = "space-telemetry-data"
 
-# Simulate live telemetry data
+s3_client = boto3.client("s3", aws_access_key_id=AWS_ACCESS_KEY, aws_secret_access_key=AWS_SECRET_KEY)
+
 def generate_telemetry():
+    """Simulate satellite telemetry data."""
     return {
         "timestamp": pd.Timestamp.now(),
         "temperature": random.uniform(-100, 100),
@@ -20,14 +23,14 @@ def generate_telemetry():
     }
 
 if __name__ == "__main__":
-    for i in range(10):  # Run for only 10 iterations
+    while True:
         data = generate_telemetry()
         df = pd.DataFrame([data])
+        file_name = "telemetry.csv"
+        df.to_csv(file_name, index=False)
 
-        # Save telemetry data to CSV
-        df.to_csv(FILE_PATH, mode="a", index=False, header=not os.path.exists(FILE_PATH))
-        
-        print(f"Saved telemetry data: {data}")
-        time.sleep(1)  # Simulate real-time data every second
+        # Upload to AWS S3
+        s3_client.upload_file(file_name, BUCKET_NAME, file_name)
+        print(f"✅ Data uploaded to S3: {file_name}")
 
-    print(f"✅ Data saved in {FILE_PATH}")
+        time.sleep(5)  # Every 5 seconds

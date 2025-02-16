@@ -79,3 +79,5 @@ instance/
 # 🎯 Ignore Windows & macOS System Files
 .DS_Store
 Thumbs.db
+
+config
