@@ -145,7 +145,7 @@ python src/visualization.py  # Start the real-time dashboard
 
 ## **📬 Support & Contribution**
 Feel free to **fork the repository, open issues, or contribute** to improvements!  
-For any questions, **contact**: [your-email@example.com]  
+For any questions, **contact**: [phanisaisri@example.com]  
 
 ---
 
