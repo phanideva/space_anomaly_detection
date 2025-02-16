@@ -80,4 +80,5 @@ instance/
 .DS_Store
 Thumbs.db
 
-config
+# 🚀 Ignore sensitive config files
+src/config.py
